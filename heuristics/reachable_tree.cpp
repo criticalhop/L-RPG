@@ -19,7 +19,7 @@ ReachableTreeNode::ReachableTreeNode(ReachableTree& tree, ReachableTreeNode* par
 {
 	assert (tree_ != NULL);
 	if (level_ + 1 == tree_->getMaxDepth()) tree.addNewLeaf(*this);
-	assert (&reachable_fact != NULL);
+	// assert (&reachable_fact != NULL);
 }
 
 ReachableTreeNode::~ReachableTreeNode()

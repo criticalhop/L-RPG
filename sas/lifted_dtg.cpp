@@ -2779,7 +2779,8 @@ void Graphviz::printToDot(std::ofstream& ofs, const SAS_Plus::MultiValuedTransit
 	printToDot(ofs, transition.getFromNode());
 	ofs << " -> ";
 	printToDot(ofs, transition.getToNode());
-	ofs << "[ label=\"" << ofs << "\"]" << std::endl;
+	ofs << "[ label=\"";
+	ofs << "\"]" << std::endl;
 //	transition.getAction().print(ofs);
 //	ofs << "\"]" << std::endl;
 }

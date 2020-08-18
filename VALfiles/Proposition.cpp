@@ -3005,8 +3005,8 @@ void QfiedGoal::write(ostream & o) const
 	for(var_symbol_list::const_iterator i = qf->getVars()->begin();i != qf->getVars()->end();++i)
 	{
 	*/
-	auto_ptr<WriteController> w(parse_category::recoverWriteController());
-	auto_ptr<WriteController> p(new PrettyPrinter());
+	shared_ptr<WriteController> w(parse_category::recoverWriteController());
+	shared_ptr<WriteController> p(new PrettyPrinter());
 	parse_category::setWriteController(p);
   o<< *qg << "\n";
   	parse_category::setWriteController(w);
@@ -3074,7 +3074,7 @@ string Comparison::getExprnString(const expression * e,const Environment & bs) c
 		s += ")";
 
 	
-      if(LaTeX) return "\\exprn{"+ s + "}";
+        if(LaTeX) return "\\exprn{"+ s + "}";
 		return s;
 
 	};
@@ -3146,7 +3146,7 @@ string Comparison::getExprnString(const expression * e,const Environment & bs, c
 	{
 		const FuncExp * fexp = s->getValidator()->fef.buildFuncExp(dynamic_cast<const func_term*>(e),bs);
 
-      if(LaTeX) return "\\exprn{"+ toString(fexp)  + "}$[=" + toString(fexp->evaluate(s)) + "]$";
+        if(LaTeX) return "\\exprn{"+ toString(fexp)  + "}$[=" + toString(fexp->evaluate(s)) + "]$";
 		return toString(fexp) + "[=" + toString(fexp->evaluate(s)) + "]";
 
 	};
